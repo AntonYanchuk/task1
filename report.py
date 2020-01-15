@@ -43,10 +43,10 @@ for root, dirs, files in os.walk("/opt"):
             print(content)
             pid_result = psutil.pid_exists(content)
             print(pid_result)
-        else:
-            pid_result = 'false'
-            print('Can\'t find AEM pid file')
-            bgcolor_proccess = '#8B0000'
+#        else:
+#            pid_result = 'false'
+#            print('Can\'t find AEM pid file')
+#            bgcolor_proccess = '#8B0000'
 
 if pid_result is None:
     pid_result = 'false'

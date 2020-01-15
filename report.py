@@ -28,7 +28,7 @@ for n in range(disk_count):
     bgcolor_disks = '#00ff00'
     if disk_percent < 20:
         bgcolor_disks = '#FF0000'
-    disks_value += "<tr><td style=\"width: 155.667px;\">DISK SPACE {disk_name}</td><td style=\"width: 155.667px; text-align: center;\">&nbsp;{disk_total} GB</td><td style=\"width: 155.667px; text-align: center;\">&nbsp;<span style=\"color: {bgcolor_disks};\">{disk_percent}</span></td></tr>\n".format(
+    disks_value += "<tr><td style=\"width: 155.667px;\">DISK SPACE on \"{disk_name}\"</td><td style=\"width: 155.667px; text-align: center;\">&nbsp;{disk_total} GB</td><td style=\"width: 155.667px; text-align: center;\">&nbsp;<span style=\"color: {bgcolor_disks};\">{disk_percent}</span></td></tr>\n".format(
         disk_name=disk_name, disk_total=disk_total, disk_percent=disk_percent, bgcolor_disks=bgcolor_disks)
 
 

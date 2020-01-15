@@ -57,7 +57,7 @@ message = """
 <html>
 <head></head>
 <body>
-<p>Memory report from {host}</p>
+<p>Memory report from: {host}</p>
 <h2>Status of AEM Proccess: <span style="color: {bgcolor_proccess};">{pid_result}</span></h2>
 <table style="height: 77px;" width="489">
 <tbody>

@@ -79,7 +79,7 @@ message = """
 """.format(host=host_report, mem_total=mem_total, mem_percent=mem_percent, disks0=disks_value, pid_result=pid_result,
            bgcolor_proccess=bgcolor_proccess, bgcolor_mem=bgcolor_mem)
 
-f = open('D:/Vagrant_test_env/helloworld.html', 'w')
+f = open('/tmp/helloworld.html', 'w')
 
 f.write(message)
 f.close()

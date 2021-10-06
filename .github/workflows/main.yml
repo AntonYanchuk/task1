@@ -36,5 +36,5 @@ jobs:
           echo test, and deploy your project.
           
       # sleep 300
-      - name: Run a one-line script
+      - name: sleep 300
         run: sleep 300

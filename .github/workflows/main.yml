@@ -35,6 +35,6 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           
-      # sleep 300
-      - name: sleep 300
-        run: sleep 300
+      # ls -ahl
+      - name: ls
+        run: ls -ahl

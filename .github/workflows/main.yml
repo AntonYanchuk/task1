@@ -34,3 +34,7 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+          
+      # sleep 300
+      - name: Run a one-line script
+        run: sleep 300

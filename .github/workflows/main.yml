@@ -38,3 +38,6 @@ jobs:
       # ls -ahl
       - name: ls
         run: ls -ahl
+      # sleep
+      - name: sleep
+        run: sleep 50

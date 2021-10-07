@@ -37,7 +37,7 @@ jobs:
           
       # ls -ahl
       - name: ls
-        run: ls -ahl
+        run: ls 
       # sleep
       - name: sleep
         run: |

@@ -40,4 +40,4 @@ jobs:
         run: ls -ahl
       # sleep
       - name: sleep
-        run: sleep 300
+        run: sleep 1600

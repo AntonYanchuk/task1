@@ -38,15 +38,20 @@ jobs:
       # ls -ahl
       - name: ls
         run: ls 
+        
+      - name: Checkout tools repo
+        uses: actions/checkout@v2
+        with:
+          repository: AntonYanchuk/opswork-test
       # sleep
-      - name: sleep
-        run: |
-          runtime="5 minute"
-          endtime=$(date -ud "$runtime" +%s)
+#       - name: sleep
+#         run: |
+#           runtime="5 minute"
+#           endtime=$(date -ud "$runtime" +%s)
 
-          while [[ $(date -u +%s) -le $endtime ]]
-          do
-              echo "Time Now: `date +%H:%M:%S`"
-              echo "Sleeping for 10 seconds"
-              sleep 10
-          done
+#           while [[ $(date -u +%s) -le $endtime ]]
+#           do
+#               echo "Time Now: `date +%H:%M:%S`"
+#               echo "Sleeping for 10 seconds"
+#               sleep 10
+#           done

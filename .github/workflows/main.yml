@@ -44,9 +44,11 @@ jobs:
         with:
           repository: AntonYanchuk/opswork-test
           
-      # Apt install tree
-      - name: apt
-        run: apt update && apt install tree -y  
+      # Apt install tree.
+      - name: tree
+        run: |
+          sudo apt-get update
+          sudo apt-get install tree
         
       # tree
       - name: tree

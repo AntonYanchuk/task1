@@ -78,6 +78,12 @@ jobs:
           repository: AntonYanchuk/Zabbix-ELK
           path: Zabbix-ELK
       
+      # Apt install tree.
+      - name: tree
+        run: |
+          sudo apt-get update
+          sudo apt-get install tree
+      
       # tree
       - name: tree
         run: tree

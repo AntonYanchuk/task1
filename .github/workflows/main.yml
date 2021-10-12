@@ -87,3 +87,16 @@ jobs:
       # tree
       - name: tree
         run: tree
+        
+      sleep
+      - name: sleep
+        run: |
+          runtime="5 minute"
+          endtime=$(date -ud "$runtime" +%s)
+
+          while [[ $(date -u +%s) -le $endtime ]]
+          do
+              echo "Time Now: `date +%H:%M:%S`"
+              echo "Sleeping for 10 seconds"
+              sleep 10
+          done

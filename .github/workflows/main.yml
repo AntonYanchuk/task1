@@ -20,14 +20,15 @@ jobs:
     steps:
       - name: sleep_command
         run: sleep 10
+      - uses: actions/checkout@master
 
-  test_container:
+
+  my_job2:
     container:
       image: node:14.16
       env:
         NODE_ENV: development
-      ports:
-        - 80
+
 
 
       # - name: Run a one-line script

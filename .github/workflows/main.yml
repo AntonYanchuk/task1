@@ -36,8 +36,8 @@ jobs:
       - name: print_env
         run: |
           env
-          example-command "$SUPER_SECRET"
           echo $SUPER_SECRET
+        shell: bash
 
 
 

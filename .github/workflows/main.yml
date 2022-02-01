@@ -38,6 +38,8 @@ jobs:
           env
           echo $SUPER_SECRET
         shell: bash
+      - name: print_secret
+        run: echo ${{ secrets.REAL_SECRET }}
 
 
 

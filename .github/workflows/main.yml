@@ -46,6 +46,11 @@ jobs:
 
       - name: pwd_ls
         run: |
+          touch touch_this_file.txt
+
+
+      - name: pwd_ls
+        run: |
           pwd
           ls -ahl
 

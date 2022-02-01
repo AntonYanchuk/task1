@@ -29,9 +29,9 @@ jobs:
       image: expcmetana/practice:12
       env:
         NODE_ENV: development
-      # steps:
-      #   - name: print_env
-      #     run: env
+    steps:
+      - name: print_env
+        run: env
 
 
 

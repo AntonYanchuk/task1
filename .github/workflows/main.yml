@@ -30,9 +30,14 @@ jobs:
       env:
         NODE_ENV: development
         K8S_ENV: EKS
+        REAL_SECRET: ${{ secrets.REAL_SECRET }}
+        not_real_secret: ${{ secrets.REAL_SECRET }}
     steps:
       - name: print_env
-        run: env
+        run: |
+          env
+          example-command "$SUPER_SECRET"
+          echo $SUPER_SECRET
 
 
 

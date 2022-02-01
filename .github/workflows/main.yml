@@ -41,6 +41,10 @@ jobs:
       - name: print_secret
         run: echo ${{ secrets.REAL_SECRET }}
 
+      - name: checkout
+        uses: actions/checkout@v2
+
+
 
 
       # - name: Run a one-line script

@@ -17,9 +17,9 @@ on:
 jobs:
   my_job:
     runs-on: ubuntu-latest
-      steps:
-        - name: sleep_command
-          run: sleep 10
+    steps:
+      - name: sleep_command
+        run: sleep 10
 
   test_container:
     container:

@@ -28,6 +28,9 @@ jobs:
       image: node:14.16
       env:
         NODE_ENV: development
+      steps:
+        - name: print_env
+          run: env
 
 
 

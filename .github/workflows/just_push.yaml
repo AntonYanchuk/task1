@@ -3,7 +3,7 @@ name: Version Management
 on: 
   push:
     branches: 
-      - main
+      - master
     paths:
       - 'dockerfiles/dockerfile'
       

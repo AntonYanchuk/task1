@@ -1,2 +1,2 @@
 FROM ubuntu:latest
-ENV 123=321
+ENV 123=3211

@@ -55,6 +55,18 @@ jobs:
       # tree
       - name: tree
         run: tree
+        
+      - name: Bump version and push tag
+        id: bump_version
+        uses: anothrNick/github-tag-action@1.36.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
+          VERBOSE: true
+          RELEASE_BRANCHES: main
+          DRY_RUN: false
+          DEFAULT_BUMP: patch
+          TAG_CONTEXT: repo
       # sleep
 #       - name: sleep
 #         run: |
@@ -67,37 +79,37 @@ jobs:
 #               echo "Sleeping for 10 seconds"
 #               sleep 10
 #           done
-  checkout:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+#   checkout:
+#     # The type of runner that the job will run on
+#     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-        with:
-          repository: AntonYanchuk/Zabbix-ELK
-          path: Zabbix-ELK
+#     # Steps represent a sequence of tasks that will be executed as part of the job
+#     steps:
+#       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+#       - uses: actions/checkout@v2
+#         with:
+#           repository: AntonYanchuk/Zabbix-ELK
+#           path: Zabbix-ELK
       
-      # Apt install tree.
-      - name: tree
-        run: |
-          sudo apt-get update
-          sudo apt-get install tree
+#       # Apt install tree.
+#       - name: tree
+#         run: |
+#           sudo apt-get update
+#           sudo apt-get install tree
       
-      # tree
-      - name: tree
-        run: tree
+#       # tree
+#       - name: tree
+#         run: tree
         
-      # sleep
-      - name: sleep
-        run: |
-          runtime="5 minute"
-          endtime=$(date -ud "$runtime" +%s)
+#       # sleep
+#       - name: sleep
+#         run: |
+#           runtime="5 minute"
+#           endtime=$(date -ud "$runtime" +%s)
 
-          while [[ $(date -u +%s) -le $endtime ]]
-          do
-              echo "Time Now: `date +%H:%M:%S`"
-              echo "Sleeping for 10 seconds"
-              sleep 10
-          done
+#           while [[ $(date -u +%s) -le $endtime ]]
+#           do
+#               echo "Time Now: `date +%H:%M:%S`"
+#               echo "Sleeping for 10 seconds"
+#               sleep 10
+#           done

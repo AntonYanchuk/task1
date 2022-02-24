@@ -1,41 +1,41 @@
-# name: Version Management
+name: Version Management
 
-# on: 
-#   push:
-#     branches: 
-#       - master
-#     paths:
-#       - 'dockerfiles/dockerfile'
+on: 
+  push:
+    branches: 
+      - master
+    paths:
+      - 'dockerfiles/dockerfile'
       
-#   # Allows you to run this workflow manually from the Actions tab
-#   workflow_dispatch:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
-# jobs:
-#   deploy:
-#     runs-on: ubuntu-latest
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
 
-#     steps:
-#       - name: Checkout code
-#         uses: actions/checkout@v2
-#         with:
-#           fetch-depth: '0'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: '0'
 
-#       - name: Bump version and push tag
-#         id: bump_version
-#         uses: anothrNick/github-tag-action@1.36.0
-#         env:
-#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#           WITH_V: false
-#           VERBOSE: true
-#           DRY_RUN: true
-#           DEFAULT_BUMP: patch
-#           RELEASE_BRANCHES: main
-#           PRERELEASE_SUFFIX: rc
+      - name: Bump version and push tag
+        id: bump_version
+        uses: anothrNick/github-tag-action@1.36.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: false
+          VERBOSE: true
+          DRY_RUN: true
+          DEFAULT_BUMP: patch
+          RELEASE_BRANCHES: main
+          PRERELEASE_SUFFIX: rc
 
-#       - name: Create a GitHub release
-#         uses: actions/create-release@v1
-#         env:
-#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#         with:
-#           tag_name: ${{ steps.bump_version.outputs.new_tag }}
-#           release_name: Release ${{ steps.bump_version.outputs.new_tag }}
+      - name: Create a GitHub release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.bump_version.outputs.new_tag }}
+          release_name: Release ${{ steps.bump_version.outputs.new_tag }}

@@ -27,9 +27,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WITH_V: false
           VERBOSE: true
-          DRY_RUN: true
+          DRY_RUN: false
           DEFAULT_BUMP: patch
-          RELEASE_BRANCHES: main
+          RELEASE_BRANCHES: master
           PRERELEASE_SUFFIX: rc
 
       - name: Create a GitHub release

@@ -37,7 +37,7 @@ jobs:
           VERBOSE: true
           DRY_RUN: false
           DEFAULT_BUMP: patch
-          TAG_CONTEXT: repo
+          TAG_CONTEXT: branch
           INITIAL_VERSION: ${{ env.VERTEX_ENV }}-0.0.0
           RELEASE_BRANCHES: ${{github.ref_name}}
 

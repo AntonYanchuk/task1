@@ -38,7 +38,7 @@ jobs:
           DRY_RUN: false
           DEFAULT_BUMP: patch
           TAG_CONTEXT: branch
-          INITIAL_VERSION: ${{ env.VERTEX_ENV }}-0.0.0
+          # INITIAL_VERSION: ${{ env.VERTEX_ENV }}-0.0.0
           RELEASE_BRANCHES: .*
 
       - name: Create a GitHub release

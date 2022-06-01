@@ -28,31 +28,38 @@ jobs:
         if: ${{github.ref_name != 'main' }}
 
 
-      - name: Bump version and push tag
-        id: bump_version
-        uses: anothrNick/github-tag-action@1.36.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WITH_V: false
-          VERBOSE: true
-          DRY_RUN: true
-          DEFAULT_BUMP: patch
-          TAG_CONTEXT: branch
-          # INITIAL_VERSION: ${{ env.VERTEX_ENV }}-0.0.0
-          RELEASE_BRANCHES: ${{ github.ref_name }}
+      # - name: Bump version and push tag
+      #   id: bump_version
+      #   uses: anothrNick/github-tag-action@1.36.0
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     WITH_V: false
+      #     VERBOSE: true
+      #     DRY_RUN: true
+      #     DEFAULT_BUMP: patch
+      #     TAG_CONTEXT: branch
+      #     # INITIAL_VERSION: ${{ env.VERTEX_ENV }}-0.0.0
+      #     RELEASE_BRANCHES: ${{ github.ref_name }}
 
-      - name: Bump version and push tag2
+      # - name: Bump version and push tag2
+      #   id: bump_version2
+      #   uses: anothrNick/github-tag-action@1.36.0
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     VERBOSE: true
+      #     DRY_RUN: false
+      #     DEFAULT_BUMP: patch
+      #     TAG_CONTEXT: branch
+      #     CUSTOM_TAG: ${{ env.VERTEX_ENV }}-${{ steps.bump_version.outputs.new_tag }}
+      #     # INITIAL_VERSION: ${{ env.VERTEX_ENV }}-${{ steps.bump_version.outputs.new_tag }}
+      #     RELEASE_BRANCHES: ${{github.ref_name}}
+
+        uses: mathieudutour/github-tag-action@v6.0
         id: bump_version2
-        uses: anothrNick/github-tag-action@1.36.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          VERBOSE: true
-          DRY_RUN: false
-          DEFAULT_BUMP: patch
-          TAG_CONTEXT: branch
-          CUSTOM_TAG: ${{ env.VERTEX_ENV }}-${{ steps.bump_version.outputs.new_tag }}
-          # INITIAL_VERSION: ${{ env.VERTEX_ENV }}-${{ steps.bump_version.outputs.new_tag }}
-          RELEASE_BRANCHES: ${{github.ref_name}}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          release_branches: ${{github.ref_name}}
+          tag_prefix: ${{ env.VERTEX_ENV }}-
 
       - name: Create a GitHub release
         uses: actions/create-release@v1

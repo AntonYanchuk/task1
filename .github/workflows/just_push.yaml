@@ -54,6 +54,7 @@ jobs:
       #     # INITIAL_VERSION: ${{ env.VERTEX_ENV }}-${{ steps.bump_version.outputs.new_tag }}
       #     RELEASE_BRANCHES: ${{github.ref_name}}
 
+      - name: Bump version and push tag2
         uses: mathieudutour/github-tag-action@v6.0
         id: bump_version2
         with:

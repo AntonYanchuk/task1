@@ -3,7 +3,7 @@ name: Version Management
 on:
   push:
     branches:
-      - master
+      - main
       - dev
 
   # Allows you to run this workflow manually from the Actions tab
@@ -17,6 +17,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Export Vertex Environment value if main branch
+        run: |
+          echo "VERTEX_ENV=prod" >> $GITHUB_ENV
+        if: ${{github.ref_name == 'main' }}
+
+      - name: Export Vertex Environment value if main branch
+        run: |
+          echo "VERTEX_ENV=${{github.ref_name}}" >> $GITHUB_ENV
+        if: ${{github.ref_name != 'main' }}
+
+
       - name: Bump version and push tag
         id: bump_version
         uses: anothrNick/github-tag-action@1.39.0
@@ -27,6 +38,7 @@ jobs:
           DRY_RUN: false
           DEFAULT_BUMP: patch
           TAG_CONTEXT: branch
+          INITIAL_VERSION: ${{ env.VERTEX_ENV }}-0.0.0
 
       - name: Create a GitHub release
         uses: actions/create-release@v1

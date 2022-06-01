@@ -68,6 +68,7 @@ jobs:
       - uses: butlerlogic/action-autotag@1.0.0
         with:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          strategy: prod-
           tag_prefix: "prod-"
 
       # - name: Create a GitHub release

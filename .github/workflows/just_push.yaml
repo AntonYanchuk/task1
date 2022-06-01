@@ -1,12 +1,11 @@
 name: Version Management
 
-on: 
+on:
   push:
-    branches: 
+    branches:
       - master
-    paths:
-      - 'dockerfiles/dockerfile'
-      
+      - dev
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -17,20 +16,17 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        with:
-          fetch-depth: '0'
 
       - name: Bump version and push tag
         id: bump_version
-        uses: anothrNick/github-tag-action@1.36.0
+        uses: anothrNick/github-tag-action@1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WITH_V: false
           VERBOSE: true
           DRY_RUN: false
           DEFAULT_BUMP: patch
-          RELEASE_BRANCHES: master
-          PRERELEASE_SUFFIX: rc
+          TAG_CONTEXT: branch
 
       - name: Create a GitHub release
         uses: actions/create-release@v1

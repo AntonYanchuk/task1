@@ -38,7 +38,7 @@ jobs:
           DRY_RUN: true
           DEFAULT_BUMP: patch
           TAG_CONTEXT: branch
-          INITIAL_VERSION: ${{ env.VERTEX_ENV }}-0.0.0
+          # INITIAL_VERSION: ${{ env.VERTEX_ENV }}-0.0.0
           RELEASE_BRANCHES: ${{ github.ref_name }}
 
       - name: Bump version and push tag2

@@ -37,9 +37,9 @@ jobs:
           VERBOSE: true
           DRY_RUN: false
           DEFAULT_BUMP: patch
-          TAG_CONTEXT: branch
+          TAG_CONTEXT: repo
           INITIAL_VERSION: ${{ env.VERTEX_ENV }}-0.0.0
-          RELEASE_BRANCHES: .*
+          RELEASE_BRANCHES: ${{github.ref_name}}
 
       - name: Create a GitHub release
         uses: actions/create-release@v1
